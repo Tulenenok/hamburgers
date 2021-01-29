@@ -1,0 +1,59 @@
+.header {
+    text-align: center;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 50px;
+    padding: 20px;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.card {
+    margin: 10px 20px;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.p {
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 25px;
+}
+
+.card-wrapper {
+    margin: 10px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    width: 100%;
+}
+
+.card-item {
+    margin: 5px 0;
+}
+
+label {
+    font-size: 17px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.result {
+    display: flex;	
+    justify-content: center;
+}
+.button {
+    display: block;
+    margin: 30px 20px;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 10px 250px;
+    background-color: white; 
+    text-align: center;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 25px;
+}
