@@ -18,11 +18,11 @@
                 <p class = "p">Выберите размер гамбургера</p>
                 <div class="card-wrapper">
                     <div class="card-item">
-                        <input type="radio" name="size" id="small" class = "size">
+                        <input type="radio" name="size" id="small" class = "size" data-price = "50" data-cal = "20">
                         <label for="small">Маленький (+50 рублей, +20 калорий)</label>
                     </div>
                     <div class="card-item">
-                        <input type="radio" name="size" id="big" class = "size">
+                        <input type="radio" name="size" id="big" class = "size" data-price = "100" data-cal = "40">
                         <label for="big">Большой (+100 рублей, +40 калорий)</label>
                     </div>
                 </div>
@@ -31,15 +31,15 @@
                 <p class = "p">Выберите одну или несколько начинок</p>
                 <div class="card-wrapper">
                     <div class="card-item">
-                        <input type="checkbox" id="cheese" class = "top">
+                        <input type="checkbox" name= "top" id="cheese" class = "top" data-price = "10" data-cal = "20">
                         <label for="cheese">С сыром (+10 рублей, +20 калорий)</label>
                     </div>
                     <div class="card-item">
-                        <input type="checkbox" id="salad" class = "top">
+                        <input type="checkbox" name= "top" id="salad" class = "top" data-price = "20" data-cal = "5">
                         <label for="salad">С салатом (+20 рублей, +5 калорий)</label>
                     </div>
                     <div class="card-item">
-                        <input type="checkbox" id="potato" class = "top">
+                        <input type="checkbox" name= "top" id="potato" class = "top" data-price = "15" data-cal = "10">
                         <label for="potato">С картофелем (+15 рублей, +10 калорий)</label>
                     </div>
                 </div>
@@ -48,11 +48,11 @@
                 <p class = "p">Дополнительно</p>
                 <div class="card-wrapper">
                     <div class="card-item">
-                        <input type="checkbox" id="spice" class = 'opt'>
+                        <input type="checkbox" name= "opt" id="spice" class = 'opt' data-price = "15" data-cal = "0">
                         <label for="spice">С приправой (+15 рублей, +0 калорий)</label>
                     </div>
                     <div class="card-item">
-                        <input type="checkbox" id="mayo" class = 'opt'>
+                        <input type="checkbox" name= "opt" id="mayo" class = 'opt' data-price = "20" data-cal = "5">
                         <label for="mayo">С майонезом (+20 рублей, +5 калорий)</label>
                     </div>
                 </div>

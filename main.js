@@ -1,40 +1,50 @@
+class Parser {
+    constructor (element) {
+        this.price = +element.dataset['price'];
+        this.cal = +element.dataset['cal'];
+    }
+}
+
 class Hamburger {
-    constructor(size = [0, 0], topping = [0, 0], optionally = [0, 0]) {
-        this.sum = size[0] + topping[0] + optionally[0];
-        this.cal = size[1] + topping[1] + optionally[1];
+    constructor(size, topping, optionally) {
+        this.size = new Parser(this.selectSize(size));
+        this.topping = this.getSeveral(topping);
+        this.optionally = this.getSeveral(optionally);
     }
-    returnSum () {
-        return this.sum;
+    
+    selectSize (size) {
+        return document.querySelector(`input[name = ${size}]:checked`);
     }
-    returnCal () {
-        return this.cal;
+
+    selectAll (name) {
+        return [...document.querySelectorAll(`input[name = ${name}]:checked`)];
     }
+
+    getSeveral (name) {
+        let result = [];
+        this.selectAll(name).forEach(elem => result.push(new Parser(elem)));
+        return result;
+    }
+
+    sumPrice () {
+        let result = this.size.price;
+        this.topping.forEach(elem => result += elem.price);
+        this.optionally.forEach(elem => result += elem.price);
+        return result;
+    }
+
+    sumCal () {
+        let result = 0;
+        result += this.size.cal;
+        this.topping.forEach(elem => result += elem.cal);
+        this.optionally.forEach(elem => result += elem.cal);
+        return result;
+    }
+
 }
 
-class makeHamburger {
-    static listenerForSize() {
-        var size = document.querySelectorAll('.size');
-        size.forEach(item => item.addEventListener('click', function(event) {
-            if (event.target.id == 'small') {return [50, 20];} else {return [100, 40];}
-        }))
-    }
-
-    static listenerForTopping() {
-        var topping = document.querySelectorAll('.top');
-        topping.forEach(item => item.addEventListener('click', function(event) {
-            if (event.target.id == 'cheese') {return [10, 20];} else 
-            if (event.target.id == 'salad') {return [20, 5];} else
-            {return [15, 10]}
-        }))
-    }
-
-    static listenerForOptions() {
-        var options = document.querySelectorAll('.opt');
-        options.forEach(item => item.addEventListener('click', function(event) {
-            if (event.target.id == 'spice') {return [15, 0];} else {return [20, 5];}
-        }))
-    }
-}
-
-let  newHamburger = new Hamburger(makeHamburger.listenerForSize(), makeHamburger.listenerForTopping(), makeHamburger.listenerForOptions);
+document.querySelector('.button').addEventListener('click', function (event) {
+    let newHamburger = new Hamburger('size', 'top', 'opt');
+    event.target.textContent = 'Итог: ' + newHamburger.sumPrice() + 'рублей, ' + newHamburger.sumCal() + 'калорий'
+})
 
